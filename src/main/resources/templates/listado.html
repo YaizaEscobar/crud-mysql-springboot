@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Instrumentos</title>
+    <link rel="stylesheet" href="/css/estilos2.css">
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Nombre de la Imagen</th>
+            <th>Fecha de Creación</th>
+            <th>Fecha de Modificación</th>
+            <th>Calidad</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="instrumento : ${listaInstrumentos}">
+            <td th:text="${instrumento.id}"></td>
+            <td th:text="${instrumento.nombreProducto}"></td>
+            <td th:text="${instrumento.descripcion}"></td>
+            <td th:text="${instrumento.precio}"></td>
+            <td>
+                <img th:src="@{/img/{imagen}(imagen=${instrumento.imagen})}" alt="Imagen del Instrumento">
+            </td>
+            <td th:text="${instrumento.nombreImagen}"></td>
+            <td th:text="${instrumento.fecha_creacion}"></td>
+            <td th:text="${instrumento.fecha_modificacion}"></td>
+            <td th:text="${instrumento.calidadProducto}"></td>
+            <td>
+                <a href="#" class="btn btn-danger">Eliminar</a>
+                <a href="#" class="btn btn-info">Editar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
